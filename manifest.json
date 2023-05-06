@@ -1,16 +1,16 @@
 {
-  "id": "dev.replugged.PluginTemplate",
-  "name": "Plugin Template",
-  "description": "A plugin template",
+  "id": "dev.delta.MMM",
+  "name": "MMM",
+  "description": "Mediocre Macro Manager",
   "author": {
-    "name": "replugged",
+    "name": "delta",
     "discordID": "1000992611840049192",
-    "github": "replugged-org"
+    "github": "Delta-Official"
   },
   "version": "1.0.0",
   "updater": {
     "type": "github",
-    "id": "replugged-org/plugin-template"
+    "id": "Delta-Official/MMM"
   },
   "license": "MIT",
   "type": "replugged-plugin",

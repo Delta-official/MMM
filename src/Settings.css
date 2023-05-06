@@ -1,0 +1,46 @@
+.macro-expansion {
+    overflow-wrap: break-word;
+}
+
+.divider-default {
+    margin: 20px 0;
+}
+
+.divider-inner {
+    margin: 10px 0;
+}
+
+.macro {
+    background-color: var(--background-nested-floating);
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.macro-inner {
+    display: flex;
+    align-items: center;
+}
+
+.macro-inner > h2 {
+    display: inline;
+}
+
+.macro-inner > button {
+    margin-left: auto;
+    display: block;
+}
+
+.macro-name {
+    max-width: 85%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.macro-expansion {
+    white-space: pre-line;
+}
+
+.settings > button {
+    margin-top: 10px;
+    right: 0;
+}
