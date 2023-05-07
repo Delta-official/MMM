@@ -1,5 +1,6 @@
-import { Injector, Logger, settings, types, webpack } from "replugged";
+import { common, Injector, Logger, settings } from "replugged";
 
+const { messages } = common;
 const inject = new Injector();
 export const logger = Logger.plugin("MMM");
 export const macroPrefix = "^";
@@ -22,22 +23,16 @@ export const cfg = await settings.init<Settings, keyof typeof defaultSettings>(
 );
 
 export async function start(): Promise<void> {
-    const messageMod = (await webpack.waitForProps("sendMessage")) as unknown as {
-        sendMessage: types.AnyFunction;
-    };
-
-    if (messageMod) {
-        inject.before(messageMod, "sendMessage", (props) => {
-            let { content } = props[1];
-            let prefix = cfg.get("prefix") || macroPrefix;
-            cfg.get("macros").forEach(({ macro, expansion }) => {
-                let regex = RegExp(`(?<!\\\\)\\${prefix}${macro}`, "g");
-                content = content.replaceAll(regex, expansion);
-            });
-            props[1].content = content;
-            return props;
+    inject.before(messages, "sendMessage", (props) => {
+        let { content } = props[1];
+        let prefix = cfg.get("prefix") || macroPrefix;
+        cfg.get("macros").forEach(({ macro, expansion }) => {
+            let regex = RegExp(`(?<!\\\\)\\${prefix}${macro}`, "g");
+            content = content.replaceAll(regex, expansion);
         });
-    }
+        props[1].content = content;
+        return props;
+    });
 }
 
 export function stop(): void {
