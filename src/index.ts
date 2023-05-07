@@ -18,7 +18,7 @@ const defaultSettings = {
 } satisfies Partial<Settings>;
 
 export const cfg = await settings.init<Settings, keyof typeof defaultSettings>(
-    "dev.delta.MMM",
+    "com.twoexem.delta.MMM",
     defaultSettings,
 );
 
