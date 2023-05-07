@@ -4,7 +4,7 @@
   "description": "Mediocre Macro Manager",
   "author": {
     "name": "delta",
-    "discordID": "1000992611840049192",
+    "discordID": "770804101332074547",
     "github": "Delta-Official"
   },
   "version": "1.0.0",
@@ -12,7 +12,7 @@
     "type": "github",
     "id": "Delta-Official/MMM"
   },
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "type": "replugged-plugin",
   "renderer": "src/index.ts"
 }
