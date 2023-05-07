@@ -25,7 +25,11 @@
     display: inline;
 }
 
-.macro-inner > button {
+.macro-inner > button:not(:last-of-type) {
+    margin-right: 10px;
+}
+
+.macro-inner > button:first-of-type {
     margin-left: auto;
     display: block;
 }
@@ -43,4 +47,13 @@
 .settings > button {
     margin-top: 10px;
     right: 0;
+}
+
+.form-notice {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.form-notice:first-child {
+    margin-top: 5px;
 }

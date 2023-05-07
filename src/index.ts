@@ -2,14 +2,17 @@ import { Injector, Logger, webpack, settings } from "replugged";
 
 const inject = new Injector();
 export const logger = Logger.plugin("MMM");
+export const macroPrefix = "^";
 
 interface Settings {
-    macros?: { macro: string, expansion: string }[]
+    macros?: { macro: string, expansion: string, id: string }[],
+    prefix?: string
 }
 
-const defaultSettings: Partial<Settings> = {
-    macros: []
-}
+const defaultSettings = {
+    macros: [],
+    prefix: macroPrefix
+} satisfies Partial<Settings>
 
 export const cfg = await settings.init<Settings, keyof typeof defaultSettings>("dev.delta.MMM", defaultSettings);
 
@@ -17,22 +20,16 @@ export async function start(): Promise<void> {
     const messageMod = await webpack.waitForProps("sendMessage", "getSendMessageOptionsForReply");
 
     if (messageMod) {
-        inject.before(messageMod, "sendMessage", (props: [string, { content: string }]) => {
-            logger.log(props[1].content);
+        inject.before(messageMod, "sendMessage", props => {
+            let content: string = props[1].content;
+            let prefix = cfg.get("prefix") || macroPrefix 
+            cfg.get("macros").forEach(({ macro, expansion }) => {
+                content = content.replaceAll(`${prefix}${macro}`, expansion)
+            })
+            props[1].content = content
+            return props
         });
     }
-
-    logger.log(cfg.all())
-    logger.log(cfg.get("macros"))
-
-    // let macros = cfg.get("macros")
-    // logger.log(macros)
-
-    // cfg.set("macros", [])
-
-    // let macros = cfg.get("macros");
-    // logger.log(macros);
-    // cfg.delete("macros")
 }
 
 export function stop(): void {
