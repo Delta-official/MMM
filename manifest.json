@@ -1,7 +1,7 @@
 {
   "id": "com.twoexem.delta.MMM",
   "name": "MMM",
-  "description": "Mediocre Macro Manager",
+  "description": "A simple plugin that allows you to turn a prefixed command into some expansion.",
   "author": {
     "name": "delta",
     "discordID": "770804101332074547",
