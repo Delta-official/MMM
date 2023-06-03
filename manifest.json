@@ -7,10 +7,10 @@
     "discordID": "770804101332074547",
     "github": "Delta-Official"
   },
-  "version": "1.0.0",
+  "version": "1.0.4",
   "updater": {
-    "type": "github",
-    "id": "Delta-Official/MMM"
+    "type": "store",
+    "id": "com.twoexem.delta.MMM"
   },
   "license": "GPL-3.0-or-later",
   "type": "replugged-plugin",
