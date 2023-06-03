@@ -1,4 +1,4 @@
-# MMM - Mediocre Macro Manager [[Install]](https://replugged.dev/install?identifier=Delta-Official/MMM&source=github)
+# MMM - Mediocre Macro Manager [[Install]](https://replugged.dev/install?identifier=com.twoexem.delta.MMM)
 ####  Perfect for all of your ~~ponzi scheme~~ macro needs!
 
 # What does this do?
