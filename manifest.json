@@ -7,12 +7,14 @@
     "discordID": "770804101332074547",
     "github": "Delta-Official"
   },
-  "version": "1.0.5",
+  "version": "1.0.6",
   "updater": {
     "type": "store",
     "id": "com.twoexem.delta.MMM"
   },
   "license": "GPL-3.0-or-later",
+  "image": "https://cdn.discordapp.com/attachments/1105067515907940434/1105067516079898635/mmm_preview.mp4",
+  "source": "https://git.karx.xyz/delta/MMM",
   "type": "replugged-plugin",
   "renderer": "src/index.ts"
 }
